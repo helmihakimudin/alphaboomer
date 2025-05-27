@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,18 +13,21 @@
       background: linear-gradient(to bottom right, #FFFDE7, #E0F7FA);
       color: #444;
     }
+
     header {
       background-color: #FFF176;
       text-align: center;
       padding: 1.5rem;
       border-bottom: 4px solid #FFD54F;
     }
+
     header h1 {
       margin: 0;
       font-family: 'Fredoka One', cursive;
       font-size: 2.5rem;
       color: #039BE5;
     }
+
     .container {
       border-radius: 10px;
       display: flex;
@@ -31,6 +35,7 @@
       align-items: center;
       padding: 2rem;
     }
+
     #model-viewer {
       width: 100%;
       max-width: 500px;
@@ -40,22 +45,25 @@
       border-radius: 20px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
+
     #judul {
       font-family: 'Fredoka One', cursive;
       color: #FFA000;
       font-size: 2rem;
       margin-bottom: 1rem;
     }
+
     #desc {
       max-width: 600px;
       font-size: 1.1rem;
       background: #ffffff;
       padding: 1.5rem;
       border-radius: 16px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
       line-height: 1.6;
       white-space: pre-line;
     }
+
     footer {
       margin-top: 4rem;
       background: #FFF9C4;
@@ -66,13 +74,15 @@
     }
   </style>
 </head>
+
 <body>
   <header>
     <h1>Teman Edukatif</h1>
   </header>
   <div class="container">
     <div id="model-viewer">
-      <model-viewer id="glbViewer" src="" alt="Karakter 3D" auto-rotate camera-controls background-color="#ffffff" style="width: 100%; height: 100%"></model-viewer>
+      <model-viewer id="glbViewer" src="" alt="Karakter 3D" auto-rotate camera-controls background-color="#ffffff"
+        style="width: 100%; height: 100%"></model-viewer>
     </div>
     <h2 id="judul">Memuat karakter...</h2>
     <div id="desc">Mohon tunggu sebentar.</div>
@@ -83,10 +93,12 @@
 
   <!-- 3D Viewer -->
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-  
+
   <script>
-    const path = window.location.pathname.split('/');
-    const karakter = path[path.length - 1] || 'bloop'; // default ke 'kucing'
+    const params = new URLSearchParams(window.location.search);
+    const karakter = params.get('name') || 'flamingo'; // hasilnya: 'hiu'
+
+    console.log(karakter)
 
     document.getElementById('glbViewer').src = `/karakter/model/${karakter}.glb`;
 
@@ -108,4 +120,5 @@
       });
   </script>
 </body>
+
 </html>
