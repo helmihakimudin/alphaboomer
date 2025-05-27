@@ -1,10 +1,14 @@
 {
-  "bloop": {
-    "title": "Ikan Bloop",
-    "deskripsi": "Ikan Bloop sebenarnya belum pernah ditemukan secara nyata, ya. Suara \"bloop\" itu adalah suara misterius dari dasar laut yang pernah didengar oleh para ilmuwan, tapi mereka belum tahu pasti hewan apa yang membuat suara itu. Jadi, gambar ikan bloop 3D yang kamu lihat itu cuma ilustrasi atau gambar imajinasi saja, supaya kita bisa membayangkan seperti apa hewan laut misterius itu. \nIni mengajarkan kita bahwa laut masih penuh dengan misteri dan banyak hal yang belum kita ketahui. Suara seperti bloop membuat para ilmuwan terus penasaran untuk menjelajah dan belajar lebih banyak tentang makhluk laut yang mungkin belum ditemukan. Jadi, kita juga harus selalu semangat untuk belajar dan menjaga laut agar hewan-hewan di sana tetap aman!"
-  },
-  "anjing": {
-    "title": "Anjing",
-    "deskripsi": "Anjing dikenal sebagai hewan paling setia..."
-  }
+    "bloop": {
+        "title": "Ikan Bloop",
+        "deskripsi": "Ikan Bloop sebenarnya belum pernah ditemukan secara nyata, ya. Suara \"bloop\" itu adalah suara misterius dari dasar laut yang pernah didengar oleh para ilmuwan, tapi mereka belum tahu pasti hewan apa yang membuat suara itu. Jadi, gambar ikan bloop 3D yang kamu lihat itu cuma ilustrasi atau gambar imajinasi saja, supaya kita bisa membayangkan seperti apa hewan laut misterius itu. \nIni mengajarkan kita bahwa laut masih penuh dengan misteri dan banyak hal yang belum kita ketahui. Suara seperti bloop membuat para ilmuwan terus penasaran untuk menjelajah dan belajar lebih banyak tentang makhluk laut yang mungkin belum ditemukan. Jadi, kita juga harus selalu semangat untuk belajar dan menjaga laut agar hewan-hewan di sana tetap aman!"
+    },
+    "el-gran-maja": {
+        "title": "Ikan El Gran Maja",
+        "deskripsi": "Ikan El Gran Maja adalah makhluk laut yang berasal dari cerita dan imajinasi orang-orang. Belum ada bukti nyata bahwa ikan ini benar-benar ada, tapi banyak orang membayangkannya sebagai ikan raksasa yang tinggal di laut yang sangat dalam. Biasanya, ikan ini digambarkan dengan tubuh besar dan sisik yang berkilau, seolah-olah seperti hewan dari dunia dongeng.\nCerita tentang ikan El Gran Maja mengajarkan kita bahwa imajinasi bisa membuat kita tertarik untuk belajar lebih banyak tentang laut dan kehidupan di dalamnya. Walaupun mungkin tidak nyata, cerita seperti ini bisa membuat kita ingin tahu dan menjadi penjelajah laut atau ilmuwan yang mencari tahu kebenaran. Yuk, terus belajar dan cintai laut kita supaya semua makhluk laut, baik yang nyata maupun yang masih menjadi misteri, tetap aman dan terlindungi!"
+    },
+    "brontosaurus": {
+        "title": "Brontosaurus",
+        "deskripsi": "Brontosaurus adalah dinosaurus besar yang hidup jutaan tahun yang lalu, jauh sebelum ada manusia di Bumi. Namanya berarti 'kadal petir' karena tubuhnya sangat besar dan kuat. Brontosaurus berjalan dengan empat kaki dan makan tumbuh-tumbuhan seperti daun dan ranting, jadi dia adalah dinosaurus pemakan tumbuhan atau herbivora.\nMeskipun kita tidak bisa melihat Brontosaurus secara langsung sekarang, para ilmuwan bisa mempelajarinya dari fosil yang ditemukan di dalam tanah. Dari fosil itulah kita bisa tahu bentuk tubuhnya, cara makannya, dan tempat hidupnya. Belajar tentang dinosaurus seperti Brontosaurus mengajarkan kita tentang sejarah Bumi dan betapa luar biasanya kehidupan yang pernah ada. Yuk, terus belajar dan gali pengetahuan tentang dunia prasejarah!"
+    }
 }

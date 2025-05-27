@@ -1,1 +1,0 @@
-Place your .glb model files here. Example: robot.glb
