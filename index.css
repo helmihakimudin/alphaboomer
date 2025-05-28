@@ -1,0 +1,126 @@
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(to bottom right, #FFFDE7, #E0F7FA);
+      color: #444;
+    }
+
+    header {
+      background-color: #FFF176;
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+      border-bottom: 4px solid #FFD54F;
+    }
+
+    header h1 {
+      margin: 0;
+      font-family: 'Fredoka One', cursive;
+      font-size: 2.8rem;
+      color: #039BE5;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #757575;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: linear-gradient(to bottom, #FFF9C4, #B2EBF2);
+    }
+
+    .hero h2 {
+      font-size: 2.2rem;
+      color: #FFA000;
+      font-family: 'Fredoka One', cursive;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .produk-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 3rem 1rem;
+    }
+
+    .produk-section a {
+      text-decoration: none;
+    }
+
+    .produk {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1rem;
+      width: 250px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+
+    .produk:hover {
+      transform: scale(1.05);
+    }
+
+    .produk img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+    }
+
+    .produk h3 {
+      font-size: 1.3rem;
+      color: #FF7043;
+      margin: 0.5rem 0;
+      font-family: 'Fredoka One', cursive;
+    }
+
+    .produk p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    .cta {
+      background: #FFF59D;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 2rem;
+      border-top: 4px dashed #FFEE58;
+    }
+
+    .cta h3 {
+      font-size: 1.6rem;
+      color: #F57C00;
+    }
+
+    .cta a {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.8rem 1.5rem;
+      background-color: #FFB74D;
+      color: white;
+      border-radius: 10px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .cta a:hover {
+      background-color: #FFA726;
+    }
+
+    footer {
+      background: #FFF9C4;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.9rem;
+      color: #999;
+    }

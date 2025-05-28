@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Produk - Alphaboomer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="detail-produk.css">
+</head>
+
+<body>
+    <header>
+        <h1>Detail Produk</h1>
+    </header>
+
+    <div class="container">
+        <img id="product-img" src="" alt="Produk" class="product-img">
+        <h2 id="product-name">Nama Produk</h2>
+        <p id="product-desc">Deskripsi produk akan tampil di sini.</p>
+
+        <div class="btn-group">
+            <a href="https://shopee.co.id" target="_blank" class="btn shopee">
+                <img src="https://img.icons8.com/?size=100&id=XGv3oOimibXn&format=png&color=000000" alt="Shopee"> Shopee
+            </a>
+            <a href="https://tokopedia.com" target="_blank" class="btn tokopedia">
+                <img src="https://lf-web-assets.tokopedia-static.net/obj/tokopedia-web-sg/arael_v3/0c292173.png"
+                    alt="Tokopedia"> Tokopedia
+            </a>
+            <a href="https://www.tiktok.com" target="_blank" class="btn tiktok">
+                <img src="https://img.icons8.com/?size=100&id=118640&format=png&color=000000" alt="TikTok"> TikTok Shop
+            </a>
+            <a href="https://wa.me/6281234567890" target="_blank" class="btn wa">
+                <img src="https://img.icons8.com/?size=100&id=16713&format=png&color=000000" alt="WhatsApp"> Chat WA
+            </a>
+        </div>
+
+        <div class="related-products">
+            <h3>Produk yang Mungkin Kamu Suka</h3>
+            <div class="related-list" id="related-products">
+                <!-- Produk terkait akan di-generate via JavaScript -->
+            </div>
+        </div>
+
+
+    </div>
+
+    <footer>
+        &copy; 2025 Alphaboomer Kidswear - Belanja Mudah, Anak Ceria!
+    </footer>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const produk = params.get('produk') || 'flamingo';
+
+        fetch('produk.json')
+            .then(response => response.json())
+            .then(produkData => {
+
+                const data = produkData[produk];
+                console.log(data)
+
+                if (data) {
+                    document.getElementById('product-name').textContent = data.nama;
+                    document.getElementById('product-desc').textContent = data.desc;
+                    document.getElementById('product-img').src = data.img;
+                } else {
+                    document.getElementById('product-name').textContent = "Produk tidak ditemukan";
+                    document.getElementById('product-desc').textContent = "Silakan kembali ke halaman utama.";
+                }
+
+                // Tampilkan produk acak (selain produk yang sedang ditampilkan)
+                function getRandomRelatedProducts(currentKey, count = 3) {
+                    const keys = Object.keys(produkData).filter(k => k !== currentKey);
+                    const shuffled = keys.sort(() => 0.5 - Math.random());
+                    return shuffled.slice(0, count).map(key => ({
+                        key,
+                        ...produkData[key]
+                    }));
+                }
+
+                const relatedProducts = getRandomRelatedProducts(produk);
+                const relatedContainer = document.getElementById('related-products');
+
+                relatedProducts.forEach(prod => {
+                    const card = document.createElement('a');
+                    card.href = `?produk=${prod.key}`;
+                    card.className = 'product-card';
+                    card.innerHTML = `
+                                        <div class="card-content">
+                                            <img src="${prod.img}" alt="${prod.nama}">
+                                            <div class="card-text">${prod.nama}</div>
+                                        </div>
+                                    `;
+                    relatedContainer.appendChild(card);
+                });
+
+            });
+    </script>
+
+
+</body>
+
+</html>

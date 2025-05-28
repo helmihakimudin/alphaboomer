@@ -1,0 +1,197 @@
+body {
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(to bottom right, #FFFDE7, #E0F7FA);
+    color: #444;
+}
+
+header {
+    background-color: #FFF176;
+    text-align: center;
+    padding: 1.5rem;
+    border-bottom: 4px solid #FFD54F;
+}
+
+header h1 {
+    margin: 0;
+    font-family: 'Fredoka One', cursive;
+    font-size: 2rem;
+    color: #039BE5;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.product-img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-family: 'Fredoka One', cursive;
+    color: #FFA000;
+    font-size: 2rem;
+    margin: 1rem 0;
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.related-products {
+    margin-top: 3rem;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.related-products h3 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.5rem;
+    color: #F57C00;
+    margin-bottom: 1rem;
+}
+
+.related-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.2rem;
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 1rem;
+    background-color: #fff7e6;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    max-width: 160px;
+    width: 100%;
+    flex: 1 1 140px;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background-color: #fff0c2;
+}
+
+.card-content img {
+    width: 100%;
+    /* height: 60px; */
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.card-text {
+    font-size: 0.875rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .product-card {
+        max-width: 45%;
+        flex: 1 1 45%;
+    }
+
+    .card-content img {
+        width: 100%;
+        /* height: 50px; */
+    }
+
+    .card-text {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-card {
+        max-width: 100%;
+        flex: 1 1 100%;
+    }
+
+    .card-content img {
+        width: 100%;
+        /* height: 48px; */
+    }
+
+    .card-text {
+        font-size: 0.75rem;
+    }
+}
+
+
+.btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    justify-content: center;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.2rem;
+    border-radius: 12px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    font-family: 'Quicksand', sans-serif;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+/* Logo icons */
+.btn img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Platform-specific colors */
+.shopee {
+    background-color: #ee4d2d99;
+}
+
+.tokopedia {
+    background-color: #03ac0e99;
+}
+
+.tiktok {
+    background-color: #00000099;
+}
+
+.wa {
+    background-color: #25d36699;
+}
+
+
+footer {
+    background: #FFF9C4;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    margin-top: 3rem;
+    color: #999;
+}

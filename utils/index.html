@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🔒 Enkripsi Parameter "name" - Responsive & Eye Catching</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset & Base */
+    * {
+      box-sizing: border-box;
+    }
+
+    #qrcode img {
+      width: 200px;
+      height: 200px;
+      text-align: center;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(135deg, #FFFDE7 0%, #E0F7FA 100%);
+      color: #444;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: #FFF176;
+      padding: 2rem 1rem;
+      text-align: center;
+      border-bottom: 5px solid #FFD54F;
+      box-shadow: 0 4px 6px rgb(255 213 79 / 0.3);
+      animation: fadeInDown 1s ease;
+    }
+
+    header h1 {
+      margin: 0;
+      font-family: 'Fredoka One', cursive;
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+      color: #039BE5;
+      letter-spacing: 0.05em;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    main.container {
+      flex-grow: 1;
+      max-width: 480px;
+      margin: 2rem auto 3rem;
+      padding: 1rem 2rem;
+      background: #ffffffcc;
+      border-radius: 24px;
+      box-shadow: 0 8px 20px rgb(3 155 229 / 0.15);
+      animation: fadeInUp 1s ease;
+      user-select: none;
+    }
+
+    label {
+      font-weight: 700;
+      color: #039BE5;
+      font-size: 1.1rem;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      font-size: 1rem;
+      border-radius: 14px;
+      border: 2.5px solid #FFD54F;
+      outline-color: #039BE5;
+      box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.07);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 1.8rem;
+    }
+
+    input[type="text"]:focus {
+      border-color: #039BE5;
+      box-shadow: 0 0 12px #039BE5aa;
+    }
+
+    button.encrypt-btn {
+      width: 100%;
+      padding: 1rem 0;
+      background: #FFD54F;
+      border: none;
+      border-radius: 20px;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #333;
+      cursor: pointer;
+      box-shadow: 0 6px 14px rgb(255 213 79 / 0.7);
+      transition: background 0.35s ease, box-shadow 0.35s ease, transform 0.25s ease;
+      user-select: none;
+    }
+
+    button.encrypt-btn:hover,
+    button.encrypt-btn:focus {
+      background: #FFCA28;
+      box-shadow: 0 8px 18px rgb(255 202 40 / 0.9);
+      transform: scale(1.05);
+      outline: none;
+    }
+
+    #resultContainer {
+      margin-top: 2.8rem;
+      padding: 1.2rem 1.5rem;
+      border-radius: 18px;
+      background: #E0F7FA;
+      box-shadow: 0 0 14px #039BEDBB;
+      word-break: break-word;
+      color: #0277bd;
+      font-weight: 600;
+      font-size: 1rem;
+      display: none;
+      user-select: text;
+      position: relative;
+    }
+
+    #resultLabel {
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      color: #039BE5;
+      font-size: 1.1rem;
+    }
+
+    #result {
+      background: #B3E5FC;
+      padding: 0.75rem 1rem;
+      border-radius: 14px;
+      line-height: 1.4;
+      user-select: all;
+      outline: none;
+    }
+
+    button.copy-btn {
+      margin-top: 1.5rem;
+      background: #039BE5;
+      color: #fff;
+      border: none;
+      border-radius: 18px;
+      padding: 0.8rem 1rem;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 5px 14px rgb(3 155 229 / 0.8);
+      width: 100%;
+      user-select: none;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    button.copy-btn:hover,
+    button.copy-btn:focus {
+      background: #0277bd;
+      box-shadow: 0 7px 18px rgb(2 119 189 / 0.9);
+      outline: none;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-15px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 500px) {
+      main.container {
+        margin: 1.2rem 1rem 2rem;
+        padding: 1rem 1.2rem;
+      }
+
+      button.encrypt-btn {
+        font-size: 1.1rem;
+        padding: 0.85rem 0;
+      }
+
+      header h1 {
+        font-size: 1.6rem;
+      }
+    }
+
+    #qrcode {
+      margin-top: 1.5rem;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .qr-section {
+      display: none;
+      margin-top: 2rem;
+      padding: 1rem;
+      border-radius: 18px;
+      background: #ffffffdd;
+      box-shadow: 0 0 10px #ccc;
+      text-align: center;
+    }
+
+    button.download-btn {
+      margin-top: 1rem;
+      background: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 18px;
+      padding: 0.8rem 1rem;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 5px 14px rgb(76 175 80 / 0.6);
+      width: 100%;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    button.download-btn:hover {
+      background: #388E3C;
+      box-shadow: 0 7px 18px rgb(56 142 60 / 0.8);
+    }
+  </style>
+  <style>
+    /* Modal overlay */
+    #authModal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.75);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    #authModal.show {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    /* Modal content box */
+    #authModal .modal-content {
+      background: #222;
+      color: #eee;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #00ff99;
+      width: 320px;
+      text-align: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    #authModal h2 {
+      margin-bottom: 20px;
+      color: #00ff99;
+      text-shadow: 0 0 10px #00ff99;
+    }
+
+    #authModal input[type="password"] {
+      width: 100%;
+      padding: 12px 15px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 2px solid #00ff99;
+      background: #111;
+      color: #eee;
+      outline: none;
+      box-sizing: border-box;
+      margin-bottom: 15px;
+      transition: border-color 0.3s;
+    }
+
+    #authModal input[type="password"]:focus {
+      border-color: #00cc77;
+      box-shadow: 0 0 8px #00cc77;
+    }
+
+    #authModal button {
+      background: #00ff99;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #222;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 0 15px #00ff99;
+      transition: background 0.3s;
+      width: 100%;
+    }
+
+    #authModal button:hover {
+      background: #00cc77;
+      box-shadow: 0 0 20px #00cc77;
+    }
+
+    #authModal .error-msg {
+      color: #ff5555;
+      margin-bottom: 12px;
+      font-weight: 600;
+      height: 20px;
+      /* agar gak geser saat muncul */
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>🔒 Enkripsi Parameter <code>name</code></h1>
+  </header>
+
+  <!-- Modal HTML -->
+  <div id="authModal" role="dialog" aria-modal="true" aria-labelledby="authTitle" aria-describedby="authDesc">
+    <div class="modal-content">
+      <h2 id="authTitle">🔐 Masukkan Password</h2>
+      <div id="authDesc" class="error-msg"></div>
+      <input type="password" id="authInput" placeholder="Password" autocomplete="off" />
+      <button id="authSubmitBtn">Masuk</button>
+    </div>
+  </div>
+
+  <main class="container">
+    <label for="karakter">Masukkan Nama Karakter:</label>
+    <input type="text" id="karakter" placeholder="Contoh: flamingo" autocomplete="off" />
+
+    <button class="encrypt-btn" type="button" onclick="generateUrl()">🔐 Buat URL Terenkripsi</button>
+
+    <section id="resultContainer">
+      <div id="resultLabel">🔗 URL Hasil:</div>
+      <div id="result" tabindex="0"></div>
+      <button class="copy-btn" type="button" onclick="copyResult()">📋 Salin URL</button>
+    </section>
+
+    <section id="qrContainer" class="qr-section">
+      <div id="qrcode"></div>
+      <button class="download-btn" onclick="downloadQR()">⬇️ Unduh QR Code</button>
+    </section>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+  <script src="util.js"></script>
+
+</body>
+
+</html>

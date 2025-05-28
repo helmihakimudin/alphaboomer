@@ -2,10 +2,11 @@
 <html lang="id">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Karakter Edukatif</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alphaboomer - Teman Edukatif</title>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
   <style>
     body {
       margin: 0;
@@ -64,8 +65,16 @@
       white-space: pre-line;
     }
 
-    footer {
+    .headfooter {
       margin-top: 4rem;
+      background: #039BE5;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #ebebeb;
+    }
+
+    footer {
       background: #FFF9C4;
       text-align: center;
       padding: 1rem;
@@ -78,14 +87,24 @@
 <body>
   <header>
     <h1>Teman Edukatif</h1>
+    <small>by alphaboomer</small>
   </header>
   <div class="container">
     <div id="model-viewer">
       <model-viewer id="glbViewer" src="" alt="Karakter 3D" auto-rotate camera-controls background-color="#ffffff"
         style="width: 100%; height: 100%"></model-viewer>
     </div>
+
     <h2 id="judul">Memuat karakter...</h2>
     <div id="desc">Mohon tunggu sebentar.</div>
+  </div>
+  <div class="headfooter">
+    <small>
+      <em>"American_flamingo_obj"</em> by <a href="https://sketchfab.com/SAVIA_Colombia"
+        target="_blank">SAVIA_Colombia</a>,
+      licensed under <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>.
+      Model: <a href="https://skfb.ly/ozCxv" target="_blank">Sketchfab</a>
+    </small>
   </div>
   <footer>
     &copy; 2025 Teman Edukatif - Belajar Seru Bersama Karakter Lucu!
@@ -95,29 +114,47 @@
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
   <script>
+    const secretKey = "teman-edukatif-123";
+
+    function decryptName(encryptedText) {
+      try {
+        const bytes = CryptoJS.AES.decrypt(decodeURIComponent(encryptedText), secretKey);
+        const decrypted = bytes.toString(CryptoJS.enc.Utf8);
+        return decrypted || null;
+      } catch (error) {
+        console.error("Decrypt Error:", error);
+        return null;
+      }
+    }
+
     const params = new URLSearchParams(window.location.search);
-    const karakter = params.get('name') || 'flamingo'; // hasilnya: 'hiu'
+    const encryptedName = params.get('name');
 
-    console.log(karakter)
+    const karakter = encryptedName ? decryptName(encryptedName) : null;
 
-    document.getElementById('glbViewer').src = `/karakter/model/${karakter}.glb`;
+    if (karakter) {
+      document.getElementById('glbViewer').src = `/karakter/model/${karakter}.glb`;
 
-    fetch('/karakter/data/karakter.json')
-      .then(res => res.json())
-      .then(data => {
-        const info = data[karakter];
-        if (info) {
-          document.getElementById('judul').textContent = info.title;
-          document.getElementById('desc').textContent = info.deskripsi;
-        } else {
-          document.getElementById('judul').textContent = "Karakter tidak ditemukan";
-          document.getElementById('desc').textContent = "Ups! Karakter yang kamu cari belum tersedia.";
-        }
-      })
-      .catch(() => {
-        document.getElementById('judul').textContent = "Gagal memuat data";
-        document.getElementById('desc').textContent = "Silakan coba beberapa saat lagi.";
-      });
+      fetch('/karakter/data/karakter.json')
+        .then(res => res.json())
+        .then(data => {
+          const info = data[karakter];
+          if (info) {
+            document.getElementById('judul').textContent = info.title;
+            document.getElementById('desc').textContent = info.deskripsi;
+          } else {
+            document.getElementById('judul').textContent = "Karakter tidak ditemukan";
+            document.getElementById('desc').textContent = "Ups! Karakter yang kamu cari belum tersedia.";
+          }
+        })
+        .catch(() => {
+          document.getElementById('judul').textContent = "Gagal memuat data";
+          document.getElementById('desc').textContent = "Silakan coba beberapa saat lagi.";
+        });
+    } else {
+      document.getElementById('judul').textContent = "Link tidak valid";
+      document.getElementById('desc').textContent = "Parameter tidak bisa didekripsi.";
+    }
   </script>
 </body>
 

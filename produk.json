@@ -1,0 +1,32 @@
+{
+  "flamingo": {
+    "nama": "Kaos Flamingo Ceria",
+    "desc": "Kaos anak dengan gambar flamingo lucu dan warna cerah. Cocok untuk anak aktif dan ceria!",
+    "img": "https://github.com/helmihakimudin/alphaboomer/releases/download/foto-v1/shark-logo.png"
+  },
+  "hiu": {
+    "nama": "Kaos Hiu Pintar",
+    "desc": "Kaos dengan karakter hiu pintar, edukatif dan penuh warna. Bahan adem dan nyaman dipakai.",
+    "img": "https://github.com/helmihakimudin/alphaboomer/releases/download/foto-v1/komodo-logo.png"
+  },
+  "gajah": {
+    "nama": "Kaos Gajah Ceria",
+    "desc": "Kaos dengan ilustrasi gajah menggemaskan yang disukai anak-anak. Bahan halus dan nyaman.",
+    "img": "https://github.com/helmihakimudin/alphaboomer/releases/download/foto-v1/komodo-logo.png"
+  },
+  "brontosaurus": {
+    "nama": "Kaos Dino Petualang",
+    "desc": "Desain dino petualang untuk si kecil yang penuh imajinasi. Warna tahan lama dan tidak luntur.",
+    "img": "https://github.com/helmihakimudin/alphaboomer/releases/download/foto-v1/komodo-logo.png"
+  },
+  "astronaut": {
+    "nama": "Kaos Astronaut Mini",
+    "desc": "Motif astronaut dan luar angkasa untuk anak yang suka eksplorasi. Adem dan menyerap keringat.",
+    "img": "https://github.com/helmihakimudin/alphaboomer/releases/download/foto-v1/komodo-logo.png"
+  },
+  "komodo": {
+    "nama": "Kaos Komodo Petualang",
+    "desc": "Kaos anak dengan gambar komodo pemberani yang siap menjelajah alam. Cocok untuk anak yang aktif dan suka bertualang.",
+    "img": "https://github.com/helmihakimudin/alphaboomer/releases/download/foto-v1/komodo-logo.png"
+  }
+}

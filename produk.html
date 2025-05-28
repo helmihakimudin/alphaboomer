@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Semua Produk - Alphaboomer Kidswear</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="produk.css">
+</head>
+<body>
+  <header>
+    <h1>Semua Produk</h1>
+  </header>
+
+  <div class="container">
+    <a class="back-link" href="index.html">&larr; Kembali ke Home</a>
+
+    <div class="product-grid" id="product-grid">
+      
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Alphaboomer Kidswear - Semua Produk yang Bikin Anak Bahagia!
+  </footer>
+</body>
+<script>
+  fetch('produk.json')
+    .then(response => response.json())
+    .then(data => {
+      const grid = document.getElementById('product-grid');
+      if (!grid) return;
+
+      // Loop setiap produk
+      Object.entries(data).forEach(([key, item]) => {
+        const card = document.createElement('a');
+        card.href = `detail-produk.html?produk=${key}`;
+        card.innerHTML = `
+          <div class="product-card">
+            <img src="${item.img}" alt="${item.nama}" />
+            <h3>${item.nama}</h3>
+            <p>${item.desc}</p>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    })
+    .catch(err => {
+      console.error('Gagal load produk:', err);
+    });
+</script>
+
+</html>
