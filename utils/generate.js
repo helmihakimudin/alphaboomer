@@ -56,24 +56,10 @@ function fallbackCopy(text) {
   document.body.removeChild(textarea);
 }
 
-// function generateQRCode(url) {
-//   const qrDiv = document.getElementById("qrcode");
-//   qrDiv.innerHTML = ""; // Clear previous QR
-//   new QRCode(qrDiv, {
-//     text: url,
-//     width: 3000,
-//     height: 3000,
-//     correctLevel: QRCode.CorrectLevel.H, // High error correction (good for printing)
-//   });
-
-//   const qrContainer = document.getElementById("qrContainer");
-//   qrContainer.style.display = "block";
-// }
-
 function generateQRCode(url) {
-  // === QR kecil untuk tampil di layar ===
+  // === QR kecil untuk tampil ke user ===
   const qrDiv = document.getElementById("qrcode");
-  qrDiv.innerHTML = ""; // Clear previous QR
+  qrDiv.innerHTML = "";
   new QRCode(qrDiv, {
     text: url,
     width: 300,
@@ -81,45 +67,45 @@ function generateQRCode(url) {
     correctLevel: QRCode.CorrectLevel.H,
   });
 
-  // === QR HD tersembunyi untuk download ===
-  const hiddenDiv = document.getElementById("hiddenQR");
-  hiddenDiv.innerHTML = ""; // Clear previous QR HD
-  new QRCode(hiddenDiv, {
-    text: url,
-    width: 1000, // HD for printing
-    height: 1000,
-    correctLevel: QRCode.CorrectLevel.H,
+  // === QR HD untuk download sebagai SVG ===
+  const qrSVGDiv = document.getElementById("hiddenQRsvg");
+  qrSVGDiv.innerHTML = "";
+
+  const qr = qrcode(0, 'H'); // TypeNumber=auto, ErrorCorrection=High
+  qr.addData(url);
+  qr.make();
+
+  const svgTag = qr.createSvgTag({
+    cellSize: 8,  // Lebih besar ukuran tiap bloknya
+    margin: 4
   });
 
-  // Tampilkan bagian QR
-  const qrContainer = document.getElementById("qrContainer");
-  qrContainer.style.display = "block";
+  qrSVGDiv.innerHTML = svgTag;
+
+  // Tampilkan section
+  document.getElementById("qrContainer").style.display = "block";
 }
 
 
-// function downloadQR() {
-//   const qrCanvas = document.querySelector("#qrcode canvas");
-//   if (qrCanvas) {
-//     const link = document.createElement("a");
-//     link.href = qrCanvas.toDataURL("image/png");
-//     link.download = "qrcode.png";
-//     link.click();
-//   } else {
-//     alert("QR Code belum dibuat.");
-//   }
-// }
+
 
 function downloadQR() {
-  const canvas = document.querySelector("#hiddenQR canvas");
-  if (canvas) {
-    const imageData = canvas.toDataURL("image/png");
-    const link = document.createElement("a");
-    link.href = imageData;
-    link.download = "qrcode_hd.png";
-    link.click();
-  } else {
-    alert("QR Code HD tidak tersedia.");
+  const svg = document.querySelector("#hiddenQRsvg svg");
+  if (!svg) {
+    alert("QR SVG belum dibuat.");
+    return;
   }
+
+  const serializer = new XMLSerializer();
+  const svgBlob = new Blob([serializer.serializeToString(svg)], { type: "image/svg+xml" });
+  const url = URL.createObjectURL(svgBlob);
+
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "qrcode_hd.svg";
+  link.click();
+
+  URL.revokeObjectURL(url);
 }
 
 
