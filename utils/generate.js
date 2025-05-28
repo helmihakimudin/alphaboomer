@@ -71,10 +71,9 @@ function fallbackCopy(text) {
 // }
 
 function generateQRCode(url) {
+  // === QR kecil untuk tampil di layar ===
   const qrDiv = document.getElementById("qrcode");
   qrDiv.innerHTML = ""; // Clear previous QR
-
-  // Display small version in UI
   new QRCode(qrDiv, {
     text: url,
     width: 300,
@@ -82,9 +81,21 @@ function generateQRCode(url) {
     correctLevel: QRCode.CorrectLevel.H,
   });
 
+  // === QR HD tersembunyi untuk download ===
+  const hiddenDiv = document.getElementById("hiddenQR");
+  hiddenDiv.innerHTML = ""; // Clear previous QR HD
+  new QRCode(hiddenDiv, {
+    text: url,
+    width: 1000, // HD for printing
+    height: 1000,
+    correctLevel: QRCode.CorrectLevel.H,
+  });
+
+  // Tampilkan bagian QR
   const qrContainer = document.getElementById("qrContainer");
   qrContainer.style.display = "block";
 }
+
 
 // function downloadQR() {
 //   const qrCanvas = document.querySelector("#qrcode canvas");
@@ -99,28 +110,16 @@ function generateQRCode(url) {
 // }
 
 function downloadQR() {
-  const url = currentUrl;
-  const canvas = document.createElement("canvas");
-  const size = 1000; // High-res size for printing
-
-  canvas.width = size;
-  canvas.height = size;
-
-  const qrCode = new QRCode(canvas, {
-    text: url,
-    width: size,
-    height: size,
-    correctLevel: QRCode.CorrectLevel.H,
-  });
-
-  // Tunggu sebentar agar QR benar-benar tergambar sebelum download
-  setTimeout(() => {
+  const canvas = document.querySelector("#hiddenQR canvas");
+  if (canvas) {
     const imageData = canvas.toDataURL("image/png");
     const link = document.createElement("a");
     link.href = imageData;
     link.download = "qrcode_hd.png";
     link.click();
-  }, 300); // Delay 300ms
+  } else {
+    alert("QR Code HD tidak tersedia.");
+  }
 }
 
 
