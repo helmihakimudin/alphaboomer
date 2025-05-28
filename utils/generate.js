@@ -56,31 +56,73 @@ function fallbackCopy(text) {
   document.body.removeChild(textarea);
 }
 
+// function generateQRCode(url) {
+//   const qrDiv = document.getElementById("qrcode");
+//   qrDiv.innerHTML = ""; // Clear previous QR
+//   new QRCode(qrDiv, {
+//     text: url,
+//     width: 3000,
+//     height: 3000,
+//     correctLevel: QRCode.CorrectLevel.H, // High error correction (good for printing)
+//   });
+
+//   const qrContainer = document.getElementById("qrContainer");
+//   qrContainer.style.display = "block";
+// }
+
 function generateQRCode(url) {
   const qrDiv = document.getElementById("qrcode");
   qrDiv.innerHTML = ""; // Clear previous QR
+
+  // Display small version in UI
   new QRCode(qrDiv, {
     text: url,
-    width: 3000,
-    height: 3000,
-    correctLevel: QRCode.CorrectLevel.H, // High error correction (good for printing)
+    width: 300,
+    height: 300,
+    correctLevel: QRCode.CorrectLevel.H,
   });
 
   const qrContainer = document.getElementById("qrContainer");
   qrContainer.style.display = "block";
 }
 
+// function downloadQR() {
+//   const qrCanvas = document.querySelector("#qrcode canvas");
+//   if (qrCanvas) {
+//     const link = document.createElement("a");
+//     link.href = qrCanvas.toDataURL("image/png");
+//     link.download = "qrcode.png";
+//     link.click();
+//   } else {
+//     alert("QR Code belum dibuat.");
+//   }
+// }
+
 function downloadQR() {
-  const qrCanvas = document.querySelector("#qrcode canvas");
-  if (qrCanvas) {
+  const url = currentUrl;
+  const canvas = document.createElement("canvas");
+  const size = 1000; // High-res size for printing
+
+  canvas.width = size;
+  canvas.height = size;
+
+  const qrCode = new QRCode(canvas, {
+    text: url,
+    width: size,
+    height: size,
+    correctLevel: QRCode.CorrectLevel.H,
+  });
+
+  // Tunggu sebentar agar QR benar-benar tergambar sebelum download
+  setTimeout(() => {
+    const imageData = canvas.toDataURL("image/png");
     const link = document.createElement("a");
-    link.href = qrCanvas.toDataURL("image/png");
-    link.download = "qrcode.png";
+    link.href = imageData;
+    link.download = "qrcode_hd.png";
     link.click();
-  } else {
-    alert("QR Code belum dibuat.");
-  }
+  }, 300); // Delay 300ms
 }
+
 
 const AUTH_PASSWORD = "rahasia123"; // ganti password kamu
 const AUTH_KEY = "authPassword";
