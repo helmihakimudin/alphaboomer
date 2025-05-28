@@ -110,12 +110,13 @@ function generateQRCode(url) {
 // }
 
 function downloadQR() {
+  const name = document.getElementById("#karakter");
   const canvas = document.querySelector("#hiddenQR canvas");
   if (canvas) {
     const imageData = canvas.toDataURL("image/png");
     const link = document.createElement("a");
     link.href = imageData;
-    link.download = "qrcode_hd.png";
+    link.download = "qrcode_"+name+".png";
     link.click();
   } else {
     alert("QR Code HD tidak tersedia.");
