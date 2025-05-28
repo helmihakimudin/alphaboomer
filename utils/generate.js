@@ -110,7 +110,7 @@ function generateQRCode(url) {
 // }
 
 function downloadQR() {
-  const name = document.getElementById("#karakter").value;
+  const name = document.getElementById("karakter").value;
   const canvas = document.querySelector("#hiddenQR canvas");
   if (canvas) {
     const imageData = canvas.toDataURL("image/png");
