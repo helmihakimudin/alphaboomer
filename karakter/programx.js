@@ -20,7 +20,7 @@ const encryptedName = params.get("name");
 const karakter = encryptedName ? decryptName(encryptedName) : null;
 
 if (karakter) {
-  fetch("/data/karakter.json")
+  fetch("/karakter/data/karakter.json")
     .then((res) => res.json())
     .then((data) => {
       const info = data[karakter];
