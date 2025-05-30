@@ -99,11 +99,8 @@
     <div id="desc">Mohon tunggu sebentar.</div>
   </div>
   <div class="headfooter">
-    <small>
-      <em>"American_flamingo_obj"</em> by <a href="https://sketchfab.com/SAVIA_Colombia"
-        target="_blank">SAVIA_Colombia</a>,
-      licensed under <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>.
-      Model: <a href="https://skfb.ly/ozCxv" target="_blank">Sketchfab</a>
+    <small id="license">
+      
     </small>
   </div>
   <footer>
@@ -133,15 +130,15 @@
     const karakter = encryptedName ? decryptName(encryptedName) : null;
 
     if (karakter) {
-      document.getElementById('glbViewer').src = `/karakter/model/${karakter}.glb`;
-
       fetch('/karakter/data/karakter.json')
         .then(res => res.json())
         .then(data => {
           const info = data[karakter];
           if (info) {
+            document.getElementById('glbViewer').src = info.url;
             document.getElementById('judul').textContent = info.title;
             document.getElementById('desc').textContent = info.deskripsi;
+            document.getElementById('license').innerHTML = info.license;
           } else {
             document.getElementById('judul').textContent = "Karakter tidak ditemukan";
             document.getElementById('desc').textContent = "Ups! Karakter yang kamu cari belum tersedia.";
