@@ -104,8 +104,8 @@
     "harimau": {
         "title": "Harimau",
         "deskripsi": "Harimau adalah kucing terbesar di dunia yang hidup di hutan Asia. Mereka memiliki bulu oranye dengan garis-garis hitam yang khas. Harimau adalah pemburu yang sangat kuat dan terampil.\nPopulasi harimau terus menurun akibat perburuan dan kerusakan habitat. Belajar tentang harimau mengingatkan kita akan pentingnya menjaga hutan dan satwa liar agar generasi mendatang juga bisa mengenal hewan luar biasa ini.",
-        "license": "<em>\"Tiger\"</em> by <a href=\"https://sketchfab.com/Hallow\" target=\"_blank\">Hallow</a>, licensed under <a href=\"http://creativecommons.org/licenses/by/4.0/\" target=\"_blank\">CC BY 4.0</a>. Model: <a href=\"https://skfb.ly/oOpDN\" target=\"_blank\">Sketchfab</a>",
-        "url": "https://alphaboomer-3d.vercel.app/tiger.glb"
+        "license": "<em>\"Tiger-howl-v04\"</em> by <a href=\"https://sketchfab.com/eyork4633\" target=\"_blank\">eyork4633</a>, licensed under <a href=\"http://creativecommons.org/licenses/by/4.0/\" target=\"_blank\">CC BY 4.0</a>. Model: <a href=\"https://skfb.ly/oFtKI\" target=\"_blank\">Sketchfab</a>",
+        "url": "https://alphaboomer-3d.vercel.app/tiger-how.glb"
     },
     "badak": {
         "title": "Badak",
@@ -136,5 +136,18 @@
         "deskripsi": "Burung kakatua adalah burung yang terkenal dengan jambulnya yang indah dan suara yang keras. Mereka hidup di hutan tropis dan banyak ditemukan di Australia dan Indonesia.\nKakatua sangat cerdas dan bisa meniru suara manusia. Namun, beberapa spesies kakatua terancam punah akibat perdagangan ilegal dan hilangnya habitat. Belajar tentang kakatua mengajarkan kita untuk melindungi burung unik ini dan lingkungan tempat mereka hidup.",
         "license": "<em>\"Sulphur-Crested Cockatoo\"</em> by <a href=\"https://sketchfab.com/AlexGiardiniere\" target=\"_blank\">AlexGiardiniere</a>, licensed under <a href=\"http://creativecommons.org/licenses/by/4.0/\" target=\"_blank\">CC BY 4.0</a>. Model: <a href=\"https://skfb.ly/ortSs\" target=\"_blank\">Sketchfab</a>",
         "url": "https://alphaboomer-3d.vercel.app/kakatua.glb"
+    },
+    "harimau-gigi-pedang": {
+        "title": "Harimau Gigi Pedang (Smilodon)",
+        "deskripsi": "Harimau gigi pedang, atau Smilodon, adalah kucing besar prasejarah yang hidup ribuan tahun lalu. Mereka terkenal dengan taring panjang seperti pedang yang digunakan untuk berburu mangsa besar. Harimau ini hidup di Amerika dan merupakan salah satu predator paling kuat pada zamannya.\nMeskipun sudah punah, Smilodon memberi kita wawasan tentang evolusi dan kehidupan satwa liar masa lampau. Mempelajari hewan purba seperti ini membantu kita memahami bagaimana alam berubah dari waktu ke waktu.",
+        "license": "<em>\"Turok: Evolution - Sabertooth Tiger\"</em> by <a href=\"https://sketchfab.com/ziggertron\" target=\"_blank\">ziggertron</a>, licensed under <a href=\"http://creativecommons.org/licenses/by/4.0/\" target=\"_blank\">CC BY 4.0</a>. Model: <a href=\"https://skfb.ly/pwDB9\" target=\"_blank\">Sketchfab</a>",
+        "url": "https://alphaboomer-3d.vercel.app/smilodon.glb"
+    },
+    "harimau-putih": {
+        "title": "Harimau Putih",
+        "deskripsi": "Harimau putih adalah varian langka dari harimau Bengal yang memiliki bulu putih dan belang hitam karena mutasi genetik alami. Mereka biasanya ditemukan di penangkaran dan jarang terlihat di alam liar.\nHarimau putih menunjukkan betapa unik dan menakjubkannya keragaman alam. Namun, mereka juga menghadapi tantangan karena perkawinan sedarah di penangkaran. Menjaga kelestarian spesies ini membantu kita belajar tentang genetika dan pentingnya konservasi yang bertanggung jawab.",
+        "license": "<em>\"Tiger in Perfect world\"</em> by <a href=\"https://sketchfab.com/Sharplist\" target=\"_blank\">Sharplist</a>, licensed under <a href=\"http://creativecommons.org/licenses/by/4.0/\" target=\"_blank\">CC BY 4.0</a>. Model: <a href=\"https://skfb.ly/6UDSI\" target=\"_blank\">Sketchfab</a>",
+        "url": "https://alphaboomer-3d.vercel.app/harimau_putih.glb"
+
     }
 }
