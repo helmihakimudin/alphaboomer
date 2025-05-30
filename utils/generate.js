@@ -3,7 +3,7 @@ let currentUrl = "";
 
 function generateUrl() {
   const karakter = document.getElementById("karakter").value.trim();
-  const baseUrl = "https://alphaboomer.vercel.app/karakter";
+  const baseUrl = "https://alphaboomer.vercel.app/karakter/";
 
   if (!karakter) {
     alert("Mohon masukkan nama karakter!");
